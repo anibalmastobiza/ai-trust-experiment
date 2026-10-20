@@ -43,7 +43,7 @@ The response spreadsheet already exists: [AI trust experiment - responses](https
 
 1. Open the spreadsheet and go to Extensions > Apps Script.
 2. Replace the content of `Code.gs` with `apps-script/Code.gs` and save.
-3. Select the function `setupSheet` in the toolbar and click Run. Authorise when asked. This creates the `participants` (53 columns) and `cards` (17 columns) tabs with their headers.
+3. The `participants` (53 columns) and `cards` (17 columns) tabs and their headers are already in the spreadsheet. `setupSheet` recreates them only if a tab is missing or empty.
 4. Deploy > New deployment > type "Web app". Execute as: Me. Who has access: Anyone. Authorise when asked.
 5. Copy the web app URL (it ends in `/exec`) into `config.js`, field `endpoint`.
 
