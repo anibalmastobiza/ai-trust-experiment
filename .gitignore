@@ -3,3 +3,4 @@ results/
 .claude/
 .DS_Store
 *.zip
+.clasp.json
