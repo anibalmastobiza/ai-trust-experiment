@@ -39,12 +39,13 @@ Measures per listing: trust (slider 0 to 100, with no visible default position u
 
 ### 1. Google Sheet and Apps Script
 
-The response spreadsheet already exists: [AI trust experiment - responses](https://docs.google.com/spreadsheets/d/1GAQ4YaDsvSRpLqDaO9803m2qjf4FMIaWBKBbhNEb76Y/edit). `Code.gs` writes to it by ID and creates the `participants` and `cards` tabs on the first submission.
+The response spreadsheet already exists: [AI trust experiment - responses](https://docs.google.com/spreadsheets/d/1GAQ4YaDsvSRpLqDaO9803m2qjf4FMIaWBKBbhNEb76Y/edit). `Code.gs` writes to it by ID.
 
 1. Open the spreadsheet and go to Extensions > Apps Script.
 2. Replace the content of `Code.gs` with `apps-script/Code.gs` and save.
-3. Deploy > New deployment > type "Web app". Execute as: Me. Who has access: Anyone. Authorise when asked.
-4. Copy the web app URL (it ends in `/exec`) into `config.js`, field `endpoint`.
+3. Select the function `setupSheet` in the toolbar and click Run. Authorise when asked. This creates the `participants` (53 columns) and `cards` (17 columns) tabs with their headers.
+4. Deploy > New deployment > type "Web app". Execute as: Me. Who has access: Anyone. Authorise when asked.
+5. Copy the web app URL (it ends in `/exec`) into `config.js`, field `endpoint`.
 
 If you edit `Code.gs` later, use Deploy > Manage deployments > Edit > New version, so the URL stays the same.
 
