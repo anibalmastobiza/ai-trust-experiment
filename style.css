@@ -1,0 +1,217 @@
+:root {
+  --ink: #1d1d1f;
+  --muted: #5f6368;
+  --line: #d9dce1;
+  --bg: #f4f5f7;
+  --card: #ffffff;
+  --accent: #0b57d0;
+  --sale: #c5221f;
+  --ok: #137333;
+  --warn: #b3261e;
+  --star: #e8a600;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 { font-size: 1.45rem; line-height: 1.25; margin: 0 0 12px; }
+h2 { font-size: 1.15rem; margin: 0 0 8px; }
+p { margin: 0 0 12px; }
+.small { font-size: .85rem; color: var(--muted); }
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.progress {
+  height: 6px;
+  background: var(--line);
+  border-radius: 3px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.progress > div { height: 100%; background: var(--accent); transition: width .3s; }
+
+button.primary {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+button.primary:disabled { background: #9aa0a6; cursor: not-allowed; }
+
+/* Tarjeta de producto (estímulo) */
+.product {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+.product .brand {
+  font-weight: 800;
+  letter-spacing: .12em;
+  font-size: 1.05rem;
+}
+.product .badges { margin: 6px 0 8px; }
+.badge {
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #e8f0fe;
+  color: var(--accent);
+  margin-right: 6px;
+}
+.product .title { font-size: 1.1rem; font-weight: 600; margin: 4px 0; }
+.product .meta { font-size: .8rem; color: var(--muted); }
+.product .stars { font-size: .9rem; margin: 4px 0 12px; }
+.product .stars span { color: var(--star); letter-spacing: 1px; }
+
+.metric {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 0;
+  margin-bottom: 12px;
+}
+.metric .row { display: flex; justify-content: space-between; align-items: baseline; }
+.metric .lbl { font-size: .85rem; color: var(--muted); }
+.metric .strike { text-decoration: line-through; color: var(--muted); }
+.metric .delta { color: var(--sale); font-weight: 600; }
+.metric .big { font-size: 1.6rem; font-weight: 700; }
+.metric .tag {
+  display: inline-block;
+  margin-top: 6px;
+  background: var(--sale);
+  color: #fff;
+  font-weight: 700;
+  font-size: .8rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.features { list-style: none; padding: 0; margin: 0 0 10px; }
+.features li {
+  display: flex;
+  gap: 10px;
+  padding: 7px 0;
+  font-size: .93rem;
+  border-bottom: 1px dashed var(--line);
+}
+.features li:last-child { border-bottom: 0; }
+.features .k { font-weight: 600; flex: 0 0 118px; }
+.features .hi .mark { color: var(--ok); }
+.features .lo .mark { color: var(--warn); }
+.features .mark { font-weight: 700; }
+
+/* Escala de confianza */
+.question { margin-top: 18px; }
+.slider-wrap { margin-top: 10px; }
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 32px;
+  background: transparent;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-runnable-track { height: 8px; background: var(--line); border-radius: 4px; }
+input[type=range]::-moz-range-track { height: 8px; background: var(--line); border-radius: 4px; }
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px; height: 24px; margin-top: -8px;
+  border-radius: 50%; background: var(--accent); border: 2px solid #fff;
+}
+input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; }
+input[type=range].untouched::-webkit-slider-thumb { opacity: 0; }
+input[type=range].untouched::-moz-range-thumb { opacity: 0; }
+.slider-ends { display: flex; justify-content: space-between; font-size: .8rem; color: var(--muted); }
+.slider-value { text-align: center; font-weight: 600; min-height: 1.5em; }
+
+.choices { display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+.choice {
+  flex: 1 1 120px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  font-size: .95rem;
+  cursor: pointer;
+  text-align: center;
+}
+.choice.selected { border-color: var(--accent); background: #e8f0fe; font-weight: 600; }
+
+/* Bloque de elección */
+.options { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-top: 12px; }
+.option {
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  padding: 14px;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+.option.selected { border-color: var(--accent); background: #f3f7ff; }
+.option .name { font-weight: 800; letter-spacing: .08em; }
+.option .acc { font-size: 1.4rem; font-weight: 700; margin: 6px 0; }
+.option ul { padding-left: 18px; margin: 0; font-size: .9rem; }
+
+/* Formulario */
+.field { margin-top: 16px; }
+.field label.q { display: block; font-weight: 600; margin-bottom: 6px; }
+.field select, .field input[type=number], .field input[type=text] {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+.likert { display: flex; gap: 6px; flex-wrap: wrap; }
+.likert label {
+  flex: 1 1 0;
+  min-width: 44px;
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 2px;
+  font-size: .8rem;
+  cursor: pointer;
+  background: #fff;
+}
+.likert input { display: block; margin: 0 auto 4px; }
+.error { color: var(--warn); font-size: .9rem; margin-top: 10px; min-height: 1.2em; }
+
+@media (max-width: 420px) {
+  html, body { font-size: 16px; }
+  .panel, .product { padding: 16px; }
+  .features li { flex-wrap: wrap; gap: 4px 10px; }
+  .features .k { flex: 0 0 auto; }
+  .features li > span:last-child { flex: 1 1 100%; padding-left: 22px; }
+}

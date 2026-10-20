@@ -1,0 +1,5 @@
+data/
+results/
+.claude/
+.DS_Store
+*.zip
